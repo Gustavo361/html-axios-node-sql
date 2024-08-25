@@ -1,0 +1,15 @@
+{
+  "name": "php-back-db",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["front", "back", "db", "api", "routes", "form"],
+  "author": "Gustavo Faustino",
+  "license": "MIT",
+  "description": "frontend to backend to database and back to backend and back to frontend",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
