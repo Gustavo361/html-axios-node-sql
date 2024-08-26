@@ -5,11 +5,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["front", "back", "db", "api", "routes", "form"],
+  "keywords": [
+    "front",
+    "back",
+    "db",
+    "api",
+    "routes",
+    "form"
+  ],
   "author": "Gustavo Faustino",
   "license": "MIT",
-  "description": "frontend to backend to database and back to backend and back to frontend",
+  "description": "Data flow: frontend to backend, then to database, back to backend, and finally to frontend.",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "mysql2": "^3.11.0"
   }
 }
