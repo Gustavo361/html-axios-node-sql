@@ -9,12 +9,15 @@
 
 <body>
     <h1>Success! Data Received</h1>
-    <div id="data"></div>
     <div id="buttons">
         <button><a href="/">return</a></button>
-        <button><a href="/show-data">show data</a></button>
+        <button id="show-last-record">view last record</button>
+        <button id="show-all">view all records</button>
+        <button id="clear-query">clear</button>
     </div>
+    <div id="database"></div>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script defer src="received.js"></script>
 </body>
 
