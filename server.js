@@ -35,21 +35,19 @@ app.post('/login', (req, res) => {
     const userName = req.body['user-name']
     const userPassword = req.body['user-password']
 
-    console.log('Tentativa de login com:', userName, userPassword);
-
     const sql = `SELECT * FROM app_users WHERE user_name = ? AND user_password = ?`
 
     connection.query(sql, [userName, userPassword], (error, results) => {
         if (error) {
-            console.log('erro ao pra achar o usuario no login')
-            res.status(500).send('erro interno do servidor')
+            console.log('error finding the user during login')
+            res.status(500).send('internal server error')
         } else {
             if (results.length > 0) {
-                console.log('usuario e senhas encontrados no banco e passou pra home')
+                console.log('user and password found in the database, redirecting to home')
                 res.sendFile(path.join(__dirname, 'index.html'))
             } else {
-                console.log('erro: usuario ou senha incorretos ou nao encontrados')
-                res.status(401).send('usuário ou senha incorretos')
+                console.log('error: incorrect or not found username or password')
+                res.status(401).send('incorrect username or password')
             }
         }
     })
@@ -91,7 +89,6 @@ app.get('/show-last-user', (req, res) => {
 })
 
 app.get('/show-all', (req, res) => {
-    console.log('entrou no get show-all')
     const sql = 'SELECT * FROM simple_users'
 
     connection.query(sql, (error, results)=>{
@@ -100,6 +97,28 @@ app.get('/show-all', (req, res) => {
         } else {
             console.log('response: ', results)
             res.send(results)
+        }
+    })
+})
+
+app.get('/sign-in', (req, res)=> {
+    res.sendFile(path.join(__dirname, 'sign-in.html'))
+})
+
+app.post('/sign-in', (req, res) => {
+    const userName = req.body['user-name']
+    const userEmail = req.body['user-email']
+    const userPassword = req.body['user-password']
+
+    const sql = 'INSERT INTO app_users (user_name, user_password, user_email) values (?, ?, ?)'
+
+    connection.query(sql, [userName, userPassword, userEmail], (error, results) => {
+        if (error) {
+            console.log('error', error)
+            res.send('error saving user:', error)
+        } else {
+            console.log('User saved to the database successfully!', results)
+            res.sendFile(path.join(__dirname, 'index.html'))
         }
     })
 })
