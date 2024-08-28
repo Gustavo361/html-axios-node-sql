@@ -27,6 +27,34 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'))
 })
 
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'login.html'))
+})
+
+app.post('/login', (req, res) => {
+    const userName = req.body['user-name']
+    const userPassword = req.body['user-password']
+
+    console.log('Tentativa de login com:', userName, userPassword);
+
+    const sql = `SELECT * FROM app_users WHERE user_name = ? AND user_password = ?`
+
+    connection.query(sql, [userName, userPassword], (error, results) => {
+        if (error) {
+            console.log('erro ao pra achar o usuario no login')
+            res.status(500).send('erro interno do servidor')
+        } else {
+            if (results.length > 0) {
+                console.log('usuario e senhas encontrados no banco e passou pra home')
+                res.sendFile(path.join(__dirname, 'index.html'))
+            } else {
+                console.log('erro: usuario ou senha incorretos ou nao encontrados')
+                res.status(401).send('usuário ou senha incorretos')
+            }
+        }
+    })
+})
+
 app.post('/submit', (req, res) => {
     let name = req.body.name
     let age = req.body.age
