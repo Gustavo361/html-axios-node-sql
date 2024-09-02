@@ -8,30 +8,36 @@
 </head>
 
 <body>
+    <button id="log-out">log out</button>
+
     <h1>Submit Your Information</h1>
-    <form action="/submit" method="POST">
+    <form id="submit-form">
         <fieldset>
             <legend>Personal Informations</legend>
             <label for="name">your name:</label>
             <br>
-            <input type="text" id="name" name="name" value="">
+            <input type="text" id="name" name="name" value="" required>
             <br>
 
             <label for="age">your age:</label>
             <br>
-            <input type="number" id="age" name="age" value="">
+            <input type="number" id="age" name="age" value="" required>
             <br>
             <label>your gender:</label>
             <br>
-            <input type="radio" id="male" name="gender" value="male">
+            <input type="radio" id="male" name="gender" value="male" required>
             <label for="male">male</label>
-            <input type="radio" id="female" name="gender" value="female">
+            <input type="radio" id="female" name="gender" value="female" required>
             <label for="female">female</label>
             <br>
 
             <button type="submit">send</button>
         </fieldset>
     </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/src/public/js/log-out.js"></script>
+    <script src="/src/public/js/index.js"></script>
 </body>
 
 </html>

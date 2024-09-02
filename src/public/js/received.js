@@ -2,6 +2,11 @@ const showAll = document.getElementById('show-all')
 const showLastRecord = document.getElementById('show-last-record')
 const dataBase = document.getElementById('database')
 const btnClearQuery = document.getElementById('clear-query')
+const btnReturn = document.getElementById('btn-return')
+
+btnReturn.addEventListener('click', () => {
+    window.history.back()
+})
 
 showAll.addEventListener('click', () => {
     clearQuery()

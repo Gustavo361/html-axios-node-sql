@@ -17,7 +17,13 @@
   "license": "MIT",
   "description": "Data flow: frontend to backend, then to database, back to backend, and finally to frontend.",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
   }
 }

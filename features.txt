@@ -1,0 +1,5 @@
+verificar se o user já existe, no forms do index.
+pesquisar um user pelo nome, por um range, por genero
+
+.tem q criar um token na hora do sign up
+enviar codigo 200 e redircionar tudo no ciente
